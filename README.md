@@ -6,7 +6,7 @@ An educational web application designed to help students learn digital logic gat
 
 ### Interactive Gate Simulator
 - Real-time input/output simulation for all basic logic gates
-- Visual gate symbols with proper IEEE standards
+- Custom SVG gate symbols for easy recognition
 - Dynamic truth tables that highlight current input combinations
 - Instant feedback on gate behavior
 
