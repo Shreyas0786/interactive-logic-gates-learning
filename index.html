@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logic Gates Learning App</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Interactive Logic Gates Learning</h1>
+            <p>Learn digital logic gates with interactive truth tables</p>
+        </header>
+
+        <div class="gate-selector">
+            <button class="gate-btn active" data-gate="AND">AND</button>
+            <button class="gate-btn" data-gate="OR">OR</button>
+            <button class="gate-btn" data-gate="NOT">NOT</button>
+            <button class="gate-btn" data-gate="NAND">NAND</button>
+            <button class="gate-btn" data-gate="NOR">NOR</button>
+            <button class="gate-btn" data-gate="XOR">XOR</button>
+            <button class="gate-btn" data-gate="XNOR">XNOR</button>
+            <button class="gate-btn" data-gate="PRACTICE">Truth Table Quiz</button>
+            <button class="gate-btn" data-gate="CIRCUIT">Circuit Practice</button>
+
+        </div>
+
+        <div class="main-content">
+            <div class="gate-display">
+                <h2 id="gate-title">AND Gate</h2>
+                <div id="gate-symbol"></div>
+                <p id="gate-description">Output is 1 only when ALL inputs are 1</p>
+            </div>
+
+            <div class="interactive-section">
+                <div class="inputs">
+                    <h3>Inputs</h3>
+                    <div class="input-controls">
+                        <div class="input-item">
+                            <label>Input A:</label>
+                            <button class="input-toggle" id="inputA">0</button>
+                        </div>
+                        <div class="input-item">
+                            <label>Input B:</label>
+                            <button class="input-toggle" id="inputB">0</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="output">
+                    <h3>Output</h3>
+                    <div class="output-display">
+                        <div class="output-led" id="outputLED">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="truth-table">
+                <h3>Truth Table</h3>
+                <table id="truthTable">
+</table>
+
+<!-- Truth Table Practice Section -->
+<div id="exercise-section" style="display: none;">
+    <h3>Truth Table Practice</h3>
+    <div id="question-counter">Question 1 of 10</div>
+    <p id="question-text">Which gate does this truth table represent?</p>
+    <table id="exercise-truth-table"></table>
+    <div id="answer-choices"></div>
+    <button id="submit-answer" style="display: none;">Submit Answer</button>
+    <button id="next-question" style="display: none;">Next Question</button>
+    <div id="feedback"></div>
+</div>
+
+<!-- Circuit Practice Section -->
+<div id="circuit-section" style="display: none;">
+    <h3>Circuit Logic Practice</h3>
+    <div id="circuit-counter">Question 1 of 10</div>
+    <p id="circuit-question">If A=1 and B=0, what is output Q?</p>
+    <div id="circuit-diagram"></div>
+    <div id="circuit-choices"></div>
+    <button id="circuit-submit" style="display: none;">Submit Answer</button>
+    <button id="circuit-next" style="display: none;">Next Question</button>
+    <div id="circuit-feedback"></div>
+</div>
+
+        </div>
+    </div>
+</div>
+    <footer class="footer">
+        <p>Created by Shreyas Sonwane | Logic Gates Learning App</p>
+    </footer>
+
+<script src="script.js"></script>
+</body>
+</html>
