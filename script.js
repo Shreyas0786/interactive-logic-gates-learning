@@ -474,30 +474,29 @@ class LogicDiagramPractice {
         this.generateAllQuestions();
     }
 
-    generateAllQuestions() {
+        generateAllQuestions() {
+        // Simple 2-gate circuits with manually calculated answers
         const circuits = [
-            // 2-gate circuits
-            { gates: ['AND', 'NOT'], connections: [[0, 1]], inputs: {A: 0, B: 1}, description: 'AND followed by NOT' },
-            { gates: ['OR', 'NOT'], connections: [[0, 1]], inputs: {A: 1, B: 0}, description: 'OR followed by NOT' },
-            { gates: ['NAND', 'NOT'], connections: [[0, 1]], inputs: {A: 0, B: 0}, description: 'NAND followed by NOT' },
-            { gates: ['XOR', 'NOT'], connections: [[0, 1]], inputs: {A: 1, B: 1}, description: 'XOR followed by NOT' },
-            
-            // 3-gate circuits
-            { gates: ['AND', 'OR', 'NOT'], connections: [[0, 2], [1, 2]], inputs: {A: 1, B: 0, C: 1}, description: 'AND and OR feeding into NOT' },
-            { gates: ['NAND', 'NOR', 'AND'], connections: [[0, 2], [1, 2]], inputs: {A: 0, B: 1, C: 0}, description: 'NAND and NOR feeding into AND' }
+            { gates: ['AND', 'NOT'], inputs: {A: 0, B: 1}, correctAnswer: 1, description: 'AND then NOT' },
+            { gates: ['OR', 'NOT'], inputs: {A: 1, B: 0}, correctAnswer: 0, description: 'OR then NOT' },
+            { gates: ['NAND', 'NOT'], inputs: {A: 0, B: 0}, correctAnswer: 0, description: 'NAND then NOT' },
+            { gates: ['XOR', 'NOT'], inputs: {A: 1, B: 1}, correctAnswer: 1, description: 'XOR then NOT' },
+            { gates: ['AND', 'NOT'], inputs: {A: 1, B: 1}, correctAnswer: 0, description: 'AND then NOT' },
+            { gates: ['OR', 'NOT'], inputs: {A: 0, B: 0}, correctAnswer: 1, description: 'OR then NOT' },
+            { gates: ['NAND', 'NOT'], inputs: {A: 1, B: 1}, correctAnswer: 1, description: 'NAND then NOT' },
+            { gates: ['XOR', 'NOT'], inputs: {A: 0, B: 1}, correctAnswer: 0, description: 'XOR then NOT' },
+            { gates: ['AND', 'NOT'], inputs: {A: 0, B: 0}, correctAnswer: 1, description: 'AND then NOT' },
+            { gates: ['OR', 'NOT'], inputs: {A: 1, B: 1}, correctAnswer: 0, description: 'OR then NOT' }
         ];
         
         this.questions = [];
         for (let i = 0; i < this.totalQuestions; i++) {
             const circuit = circuits[i % circuits.length];
-            const inputValues = this.generateRandomInputs(circuit);
-            const output = this.calculateCircuitOutput(circuit, inputValues);
-            
             this.questions.push({
-                circuit: circuit,
-                inputs: inputValues,
-                correctAnswer: output,
-                choices: [0, 1, 'undefined', 'error'].sort(() => Math.random() - 0.5)
+                circuit: { gates: circuit.gates, description: circuit.description },
+                inputs: circuit.inputs,
+                correctAnswer: circuit.correctAnswer,
+                choices: [0, 1].sort(() => Math.random() - 0.5)
             });
         }
     }
@@ -752,6 +751,7 @@ class PracticeExercise {
             case 'NAND': return a && b ? 0 : 1;
             case 'NOR': return a || b ? 0 : 1;
             case 'XOR': return a !== b ? 1 : 0;
+            case 'XNOR': return a === b ? 1 : 0;
             default: return 0;
         }
     }
