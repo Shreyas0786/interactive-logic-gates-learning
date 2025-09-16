@@ -848,7 +848,8 @@ class PracticeExercise {
         'NOT': 'NOT gate inverts the input - 0 becomes 1, 1 becomes 0.',
         'NAND': 'NAND gate is opposite of AND - outputs 0 only when both inputs are 1.',
         'NOR': 'NOR gate is opposite of OR - outputs 1 only when both inputs are 0.',
-        'XOR': 'XOR gate outputs 1 when inputs are DIFFERENT (not the same).'
+        'XOR': 'XOR gate outputs 1 when inputs are DIFFERENT (not the same).',
+        'XNOR': 'XNOR gate outputs 1 when inputs are the SAME (both 0 or both 1).'
     };
     return explanations[gate];
 }
